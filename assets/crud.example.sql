@@ -15,7 +15,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `crud`
 --
-
+CREATE DATABASE `crud`;
 -- --------------------------------------------------------
 
 --
@@ -51,6 +51,10 @@ ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
+-- Insert examples
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `sign_date`)
+VALUES (NULL, 'First', 'User', 'firstuser@example.com', current_timestamp()),
+       (NULL, 'Second', 'User', 'secuser@example.com', current_timestamp());
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
