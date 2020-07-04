@@ -107,6 +107,7 @@ const User = new UserApp();
 
 $('.modal').on('hidden.bs.modal', function(e){
 	$(this).find('form').trigger('reset');
+	$(this).find('.alert').hide();
 }) ;
 
 $('#users-page').ready(function() {
