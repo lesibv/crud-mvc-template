@@ -44,6 +44,7 @@ class UserApp {
 			success:function(response){
 				if (response !== '') {
 					$("#grid_container").html(response);
+					$('#users_grid').DataTable();
 				}
 			},error: function(error){
 				console.warn('error loading data');
@@ -54,7 +55,7 @@ class UserApp {
 	save(btn) {
 
 		const form = $("#userForm").serializeArray();
-		console.group('Save');
+
 		if ($.trim($('#first_name').val()) === ''
 			|| $.trim($('#last_name').val()) === ''
 			|| $.trim($('#email').val()) === ''
@@ -63,7 +64,6 @@ class UserApp {
 			$('#modalUserForm .alert-danger').show();
 		} else {
 
-			console.log('*** id ' + $('#id').val());
 			const action = $('#edit_mode').val() === '1' ? '/edit' : '/add';
 
 			$.ajax({
@@ -77,8 +77,6 @@ class UserApp {
 						$('#edit_mode').val('0');
 						$("#modalUserForm").modal('hide');
 						User.reloadGrid();
-						console.log('data saved');
-						console.groupEnd();
 					}
 				}
 			});
@@ -112,5 +110,5 @@ $('.modal').on('hidden.bs.modal', function(e){
 }) ;
 
 $('#users-page').ready(function() {
-    $('#users_grid').DataTable();
+  $('#users_grid').DataTable();
 } );
